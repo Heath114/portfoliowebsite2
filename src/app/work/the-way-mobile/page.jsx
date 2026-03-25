@@ -91,6 +91,11 @@ const page = () => {
       const counter = sampleProjectRef.current.querySelector(
         "#sp-images-scroll-counter"
       );
+      const setProgressY = gsap.quickSetter(
+        progressContainer,
+        "y",
+        "px"
+      );
       const bannerImg =
         sampleProjectRef.current.querySelector(".sp-banner-img");
       const btnLinkWrapper =
@@ -140,17 +145,9 @@ const page = () => {
           counter.textContent = progress;
 
           const containerHeight = progressContainer.offsetHeight;
+          const moveDistance = window.innerHeight + containerHeight;
 
-          const isMobile = window.innerWidth < 1000;
-          const baseDistance = window.innerHeight + containerHeight;
-          const mobileMultiplier = isMobile ? 1.25 : 1;
-          const moveDistance = baseDistance * mobileMultiplier;
-
-          gsap.to(progressContainer, {
-            y: -self.progress * moveDistance,
-            duration: 0.1,
-            ease: "none",
-          });
+          setProgressY(-self.progress * moveDistance);
         },
       });
 
@@ -179,9 +176,10 @@ const page = () => {
 
       gsap.set(progressContainer, {
         position: "fixed",
-        top: "100vh",
+        top: "100dvh",
         left: "1.5rem",
         right: "1.5rem",
+        y: 0,
         autoAlpha: 0,
         clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
       });
