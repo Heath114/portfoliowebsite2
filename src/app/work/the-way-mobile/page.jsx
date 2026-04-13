@@ -273,7 +273,7 @@ const page = () => {
 
               <div className="sp-link">
                 <div className="sp-link-wrapper">
-                  <BtnLink route="https://phonestore0.vercel.app/en" label="View Project" />
+                  <BtnLink route="https://thewaymobile.netlify.app/en" label="View Project" />
                 </div>
               </div>
             </div>

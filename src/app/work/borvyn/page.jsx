@@ -275,7 +275,7 @@ const page = () => {
 
               <div className="sp-link">
                 <div className="sp-link-wrapper">
-                  <BtnLink route="https://bonvoy2.vercel.app/" label="View Project" />
+                  <BtnLink route="https://borvyn.netlify.app/" label="View Project" />
                 </div>
               </div>
             </div>
