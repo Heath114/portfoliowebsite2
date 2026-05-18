@@ -57,23 +57,18 @@ const page = () => {
   }
 
   const navigateToProject = (route = "/sample-project") => {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    const resetScroll = () => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
 
     router.push(route, {
       onTransitionReady: () => {
         slideInOut();
-        requestAnimationFrame(() => {
-          window.scrollTo(0, 0);
-          document.documentElement.scrollTop = 0;
-          document.body.scrollTop = 0;
-        });
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          document.documentElement.scrollTop = 0;
-          document.body.scrollTop = 0;
-        }, 220);
+        resetScroll();
+        requestAnimationFrame(resetScroll);
+        setTimeout(resetScroll, 220);
       },
     });
   };

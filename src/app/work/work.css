@@ -18,6 +18,11 @@
   margin-bottom: 7.5rem;
 }
 
+.work-year-container,
+.work-year {
+  pointer-events: none;
+}
+
 .work-year {
   position: relative;
   top: 8rem;

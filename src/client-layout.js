@@ -70,10 +70,8 @@ export default function ClientLayout({ children }) {
 
     // Disable scroll-triggered animations on touch/tablet devices.
     ScrollTrigger.getAll().forEach((trigger) => trigger.disable());
-    ScrollTrigger.disable();
 
     return () => {
-      ScrollTrigger.enable();
       ScrollTrigger.getAll().forEach((trigger) => trigger.enable());
     };
   }, [isTouchDevice]);
