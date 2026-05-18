@@ -5,9 +5,11 @@ import { usePathname } from "next/navigation";
 import Menu from "@/components/Menu/Menu";
 
 import { ReactLenis } from "lenis/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function ClientLayout({ children }) {
   const [isMobile, setIsMobile] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const lenisRef = useRef(null);
   const pathname = usePathname();
 
@@ -28,6 +30,46 @@ export default function ClientLayout({ children }) {
     mediaQuery.addListener(handleChange);
     return () => mediaQuery.removeListener(handleChange);
   }, []);
+
+  useEffect(() => {
+    const updateTouchFlags = () => {
+      const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+      const hasTouch =
+        "ontouchstart" in window ||
+        navigator.maxTouchPoints > 0 ||
+        isCoarsePointer;
+      const isIpadLike =
+        /iPad|Macintosh/.test(navigator.userAgent) &&
+        navigator.maxTouchPoints > 1;
+      const minViewport = Math.min(window.innerWidth, window.innerHeight);
+      const maxViewport = Math.max(window.innerWidth, window.innerHeight);
+      const isTabletViewport = minViewport >= 768 && maxViewport <= 1366;
+
+      setIsTouchDevice(hasTouch || isIpadLike || isTabletViewport);
+    };
+
+    updateTouchFlags();
+    window.addEventListener("resize", updateTouchFlags);
+    window.addEventListener("orientationchange", updateTouchFlags);
+
+    return () => {
+      window.removeEventListener("resize", updateTouchFlags);
+      window.removeEventListener("orientationchange", updateTouchFlags);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isTouchDevice) return;
+
+    // Disable scroll-triggered animations on touch/tablet devices.
+    ScrollTrigger.getAll().forEach((trigger) => trigger.disable());
+    ScrollTrigger.disable();
+
+    return () => {
+      ScrollTrigger.enable();
+      ScrollTrigger.getAll().forEach((trigger) => trigger.enable());
+    };
+  }, [isTouchDevice]);
 
   useEffect(() => {
     // Disable browser scroll restoration while the app is mounted.
@@ -97,7 +139,7 @@ export default function ClientLayout({ children }) {
         syncTouch: true,
       };
 
-  if (isMobile) {
+  if (isMobile || isTouchDevice) {
     return (
       <>
         <Menu />

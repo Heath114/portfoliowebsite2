@@ -263,7 +263,7 @@ const page = () => {
                 </p>
                 <br />
                 <p>
-                  I focused on balancing technical credibility with visual
+                  We focused on balancing technical credibility with visual
                   polish: scroll-based reveals, masonry galleries, structured
                   service sections, and strong navigation between projects. The
                   result is a portfolio-first experience that supports both

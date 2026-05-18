@@ -266,7 +266,7 @@ const page = () => {
                 <p>
                   The build includes dynamic product pages, cart state
                   management, custom micro-interactions, and animated sections
-                  powered by GSAP and Framer Motion. I designed the interface to
+                  powered by GSAP and Framer Motion. We designed the interface to
                   balance playful motion with readable product details, helping
                   users discover flavors quickly and move to checkout with less
                   friction.
