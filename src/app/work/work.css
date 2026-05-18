@@ -34,10 +34,25 @@
 }
 
 .work-project {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 0.5rem;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.work-project * {
+  pointer-events: none;
 }
 
 .work-project-img {

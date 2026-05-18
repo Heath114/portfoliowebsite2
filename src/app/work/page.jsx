@@ -274,11 +274,13 @@ const page = () => {
               </div>
               <div className="work-projects-container">
                 {yearData.projects.map((project, projectIndex) => (
-                  <div
+                  <button
                     key={projectIndex}
                     className="work-project"
-                    onClick={() => navigateToProject(project.route)}
-                    style={{ cursor: "pointer" }}
+                    type="button"
+                    onClick={() =>
+                      navigateToProject(project.route ?? "/sample-project")
+                    }
                   >
                     <div className="work-project-img">
                       <img src={project.img} alt={project.name} />
@@ -291,7 +293,7 @@ const page = () => {
                         {project.tags}
                       </p>
                     </div>
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
