@@ -45,7 +45,14 @@ export default function ClientLayout({ children }) {
       const maxViewport = Math.max(window.innerWidth, window.innerHeight);
       const isTabletViewport = minViewport >= 768 && maxViewport <= 1366;
 
-      setIsTouchDevice(hasTouch || isIpadLike || isTabletViewport);
+      const isTouch = hasTouch || isIpadLike || isTabletViewport;
+      setIsTouchDevice(isTouch);
+
+      if (isTouch) {
+        document.documentElement.classList.add("has-touch");
+      } else {
+        document.documentElement.classList.remove("has-touch");
+      }
     };
 
     updateTouchFlags();

@@ -100,30 +100,30 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .work-project {
+  html:not(.has-touch) .work-project {
     cursor: pointer;
   }
 
-  .work-project:hover {
+  html:not(.has-touch) .work-project:hover {
     transform: translateY(-0.3rem);
   }
 
-  .work-project:hover .work-project-img img {
+  html:not(.has-touch) .work-project:hover .work-project-img img {
     transform: scale(1.045);
     filter: saturate(1.05) contrast(1.02);
     opacity: 0.95;
   }
 
-  .work-project:hover .work-project-img::after {
+  html:not(.has-touch) .work-project:hover .work-project-img::after {
     opacity: 1;
     transform: scale(1);
   }
 
-  .work-project:hover .work-project-info-name {
+  html:not(.has-touch) .work-project:hover .work-project-info-name {
     color: var(--foreground);
   }
 
-  .work-project:hover .work-project-info-tags {
+  html:not(.has-touch) .work-project:hover .work-project-info-tags {
     color: color-mix(in srgb, var(--foreground), var(--foreground-200) 35%);
   }
 }
