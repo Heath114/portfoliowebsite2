@@ -164,7 +164,7 @@ export default function Card() {
             </Copy>
           </div>
           <div className="card-venture-cta">
-            <BtnLink route="/work" label="Learn More" />
+            <BtnLink route="/work/unidash" label="Learn More" />
           </div>
         </div>
       </section>
