@@ -1,0 +1,175 @@
+.card-page {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.card-muted {
+  color: var(--foreground-200);
+}
+
+/* ── Hero ─────────────────────────────────────────── */
+
+.card-hero {
+  min-height: 100svh;
+  padding: 1.5rem;
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-hero-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+
+.card-hero-ctas {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+/* ── Shared section layout ────────────────────────── */
+
+.card-building,
+.card-about,
+.card-venture,
+.card-services,
+.card-selected-work,
+.card-why,
+.card-contact {
+  padding: 5rem 1.5rem;
+  border-top: 1px solid rgba(228, 231, 223, 0.1);
+}
+
+.card-section-label {
+  margin-bottom: 3rem;
+  color: var(--foreground-200);
+}
+
+/* ── Currently Building ───────────────────────────── */
+
+.card-building-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.card-status-dot {
+  display: block;
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--foreground);
+  margin-top: 0.4em;
+}
+
+/* ── About ────────────────────────────────────────── */
+
+.card-about-copy {
+  margin-bottom: 4rem;
+}
+
+.card-about-stats {
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.card-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ── Featured Venture ─────────────────────────────── */
+
+.card-venture-header {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.card-venture-desc {
+  margin-bottom: 3rem;
+}
+
+/* ── List pattern (services / work / why) ─────────── */
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-list-item {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(228, 231, 223, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.card-list-item:last-child {
+  border-bottom: 1px solid rgba(228, 231, 223, 0.1);
+}
+
+/* ── Contact ──────────────────────────────────────── */
+
+.card-contact-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-contact-link {
+  display: block;
+  color: var(--foreground);
+  text-decoration: none;
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(228, 231, 223, 0.1);
+  transition: opacity 0.25s ease;
+}
+
+.card-contact-link:last-child {
+  border-bottom: 1px solid rgba(228, 231, 223, 0.1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-contact-link:hover {
+    opacity: 0.65;
+  }
+}
+
+/* ── Footer ───────────────────────────────────────── */
+
+.card-footer {
+  padding: 3rem 1.5rem;
+  border-top: 1px solid rgba(228, 231, 223, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* ── Mobile ───────────────────────────────────────── */
+
+@media (max-width: 800px) {
+  .card-about-stats {
+    gap: 2rem;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
