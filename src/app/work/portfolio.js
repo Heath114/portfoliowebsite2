@@ -5,31 +5,36 @@ export const portfolio = [
       {
         name: "The Way Mobile",
         tags: "website, UI/UX, brand identity",
+        tagsAr: "موقع، تجربة المستخدم، هوية بصرية",
         img: "/images/work/The Way Mobile/main.png",
         route: "/work/the-way-mobile",
       },
       {
         name: "Borvyn Bakery",
         tags: "art direction, experimental, identity, web",
+        tagsAr: "إدارة فنية، تجريبي، هوية، ويب",
         img: "/images/work/borvyn/1.webp",
         route: "/work/borvyn",
       },
       {
         name: "LineEscape",
         tags: "web, creative direction",
+        tagsAr: "ويب، إدارة إبداعية",
         img: "/images/work/work_010.jpeg",
       },
       {
         name: "FLORA",
         tags: "typography, design",
+        tagsAr: "طباعة، تصميم",
         img: "/images/work/work_011.jpeg",
       },
       {
         name: "Black + Bloom",
         tags: "motion, experimental",
+        tagsAr: "حركة، تجريبي",
         img: "/images/work/work_012.jpeg",
       },
-    ]
+    ],
   },
   {
     year: "2025",
@@ -37,17 +42,20 @@ export const portfolio = [
       {
         name: "New Look - Finishing & Coating",
         tags: "creative direction, design, identity, web",
+        tagsAr: "إدارة إبداعية، تصميم، هوية، ويب",
         img: "/images/work/newlook/ss.webp",
         route: "/work/newlook",
       },
       {
         name: "Mono Flower",
         tags: "art direction, design",
+        tagsAr: "إدارة فنية، تصميم",
         img: "/images/work/work_001.jpeg",
       },
       {
         name: "GL Loop",
         tags: "motion, design",
+        tagsAr: "حركة، تصميم",
         img: "/images/work/work_008.jpeg",
       },
     ],
@@ -58,6 +66,7 @@ export const portfolio = [
       {
         name: "Zag 13",
         tags: "creative direction, design",
+        tagsAr: "إدارة إبداعية، تصميم",
         img: "/images/work/work_013.jpeg",
       },
     ],
@@ -68,21 +77,25 @@ export const portfolio = [
       {
         name: "Infra Burn",
         tags: "web, creative direction",
+        tagsAr: "ويب، إدارة إبداعية",
         img: "/images/work/work_016.jpeg",
       },
       {
         name: "Float",
         tags: "typography, design",
+        tagsAr: "طباعة، تصميم",
         img: "/images/work/work_017.jpeg",
       },
       {
         name: "Bloom",
         tags: "creative direction, design",
+        tagsAr: "إدارة إبداعية، تصميم",
         img: "/images/work/work_019.jpeg",
       },
       {
         name: "Rift Oscillator",
         tags: "motion, design",
+        tagsAr: "حركة، تصميم",
         img: "/images/work/work_020.jpeg",
       },
     ],

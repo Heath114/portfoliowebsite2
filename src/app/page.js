@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import DynamicBackground from "@/components/DynamicBackground/DynamicBackground";
 import Copy from "@/components/Copy/Copy";
 import BtnLink from "@/components/BtnLink/BtnLink";
+import { useLanguage, useT } from "@/context/LanguageContext";
 
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
@@ -19,6 +20,8 @@ const PRELOADER_SESSION_KEY = "wuwei-home-preloader-played";
 export default function Home() {
   const [showPreloader, setShowPreloader] = useState(false);
   const [hasCheckedPreloader, setHasCheckedPreloader] = useState(false);
+  const { toggleLang } = useLanguage();
+  const t = useT();
 
   useEffect(() => {
     const hasPlayedPreloader =
@@ -182,10 +185,7 @@ export default function Home() {
             <div className="hero-header-col-lg"></div>
             <div className="hero-header-col-sm">
               <Copy animateOnScroll={true} delay={showPreloader ? 6.2 : 0.9}>
-                <h3>
-                  Systems thinking and creative execution brought into web
-                  development for consistent outcomes.
-                </h3>
+                <h3>{t("home_tagline")}</h3>
               </Copy>
             </div>
           </div>
@@ -193,22 +193,28 @@ export default function Home() {
           <div className="hero-footer">
             <div className="hero-footer-col-lg">
               <Copy animateOnScroll={false} delay={showPreloader ? 6.2 : 0.9}>
-                <p className="sm caps mono">The Office</p>
-                <p className="sm caps mono">Amman, Jordan</p>
+                <p className="sm caps mono">{t("home_loc_1")}</p>
+                <p className="sm caps mono">{t("home_loc_2")}</p>
               </Copy>
             </div>
             <div className="hero-footer-col-sm">
               <div className="hero-tags">
                 <Copy animateOnScroll={false} delay={showPreloader ? 6.2 : 0.9}>
-                  <p className="sm caps mono">Web Systems</p>
-                  <p className="sm caps mono">Interface Design</p>
-                  <p className="sm caps mono">Creative Development</p>
-                  <p className="sm caps mono">End to End Delivery</p>
+                  <p className="sm caps mono">{t("home_tag_1")}</p>
+                  <p className="sm caps mono">{t("home_tag_2")}</p>
+                  <p className="sm caps mono">{t("home_tag_3")}</p>
+                  <p className="sm caps mono">{t("home_tag_4")}</p>
                 </Copy>
               </div>
 
+              <div className="hero-lang">
+                <button className="sm caps mono hero-lang-btn" onClick={toggleLang}>
+                  {t("lang_toggle")}
+                </button>
+              </div>
+
               <div className="hero-link">
-                <BtnLink route="/contact" label="contact" />
+                <BtnLink route="/contact" label={t("home_contact_btn")} />
               </div>
             </div>
           </div>

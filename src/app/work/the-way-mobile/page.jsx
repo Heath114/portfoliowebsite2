@@ -5,6 +5,7 @@ import { useTransitionRouter } from "next-view-transitions";
 
 import Copy from "@/components/Copy/Copy";
 import BtnLink from "@/components/BtnLink/BtnLink";
+import { useT } from "@/context/LanguageContext";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -15,6 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 const page = () => {
   const sampleProjectRef = useRef(null);
   const router = useTransitionRouter();
+  const t = useT();
 
   function slideInOut() {
     document.documentElement.animate(
@@ -222,9 +224,9 @@ const page = () => {
           <div className="sp-col sp-col-lg">
             <div className="sp-tags">
               <Copy>
-                <p className="sm caps mono">Website Design</p>
-                <p className="sm caps mono">UI/UX</p>
-                <p className="sm caps mono">Brand Identity</p>
+                <p className="sm caps mono">{t("theway_tag_1")}</p>
+                <p className="sm caps mono">{t("theway_tag_2")}</p>
+                <p className="sm caps mono">{t("theway_tag_3")}</p>
               </Copy>
             </div>
           </div>
@@ -247,33 +249,21 @@ const page = () => {
           <div className="sp-col-lg">
             <div className="sp-copy-title">
               <Copy>
-                <h3>A Clear, Modern Website Identity for The Way Mobile</h3>
+                <h3>{t("theway_title")}</h3>
               </Copy>
             </div>
           </div>
           <div className="sp-col-sm">
             <div className="sp-copy-description">
               <Copy>
-                <p>
-                  The Way Mobile is a full website identity project built to
-                  communicate trust, clarity, and modernity. The site combines
-                  clean typography, intuitive layout systems, and a strong
-                  visual hierarchy to make content feel both premium and easy to
-                  navigate.
-                </p>
+                <p>{t("theway_desc_1")}</p>
                 <br />
-                <p>
-                  The identity extends across key web pages with consistent UI
-                  components, interaction patterns, and responsive behavior.
-                  Each section was designed to reduce friction and guide users
-                  naturally through the experience, balancing visual character
-                  with practical usability.
-                </p>
+                <p>{t("theway_desc_2")}</p>
               </Copy>
 
               <div className="sp-link">
                 <div className="sp-link-wrapper">
-                  <BtnLink route="https://thewaymobile.netlify.app/en" label="View Project" />
+                  <BtnLink route="https://thewaymobile.netlify.app/en" label={t("theway_view")} />
                 </div>
               </div>
             </div>
@@ -311,7 +301,7 @@ const page = () => {
       <section className="sp-next-project">
         <div className="sp-next-project-copy">
           <Copy>
-            <p className="sm">(More Projects)</p>
+            <p className="sm">{t("theway_more")}</p>
           </Copy>
           <div className="sp-next-project-names">
             <Copy>
@@ -319,7 +309,7 @@ const page = () => {
                 href="/work/newlook"
                 onClick={(e) => handleProjectRoute(e, "/work/newlook")}
               >
-                <h1>New Look - Finishing & Coating</h1>
+                <h1>{t("theway_next")}</h1>
               </a>
             </Copy>
           </div>

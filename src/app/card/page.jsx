@@ -4,6 +4,7 @@ import { useRef } from "react";
 
 import Copy from "@/components/Copy/Copy";
 import BtnLink from "@/components/BtnLink/BtnLink";
+import { useT } from "@/context/LanguageContext";
 
 import { useTransitionRouter } from "next-view-transitions";
 import gsap from "gsap";
@@ -15,6 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Card() {
   const cardRef = useRef(null);
   const router = useTransitionRouter();
+  const t = useT();
 
   useGSAP(() => {
     if (!cardRef.current) return;
@@ -69,7 +71,7 @@ export default function Card() {
       <section className="card-hero">
         <div className="card-hero-top">
           <Copy animateOnScroll={false} delay={0.5}>
-            <p className="sm caps mono">Development Company</p>
+            <p className="sm caps mono">{t("card_dev_company")}</p>
           </Copy>
         </div>
         <div className="card-hero-bottom">
@@ -77,11 +79,11 @@ export default function Card() {
             <h1>The Office</h1>
           </Copy>
           <Copy animateOnScroll={false} delay={0.95}>
-            <h3>Software built around how your business works.</h3>
+            <h3>{t("card_tagline")}</h3>
           </Copy>
           <div className="card-hero-ctas">
-            <BtnLink route="/contact" label="Contact Us" />
-            <BtnLink route="/work" label="View Our Work" />
+            <BtnLink route="/contact" label={t("card_contact_btn")} />
+            <BtnLink route="/work" label={t("card_work_btn")} />
           </div>
         </div>
       </section>
@@ -89,16 +91,16 @@ export default function Card() {
       <section className="card-building">
         <div className="card-section-label">
           <Copy>
-            <p className="sm caps mono">Currently Building</p>
+            <p className="sm caps mono">{t("card_building_label")}</p>
           </Copy>
         </div>
         <div className="card-building-item">
           <span className="card-status-dot" />
           <div>
             <Copy>
-              <p className="caps">UniDash</p>
-              <p className="sm caps mono">University Food Ordering Platform</p>
-              <p className="sm caps mono card-muted">Active Development</p>
+              <p className="caps">{t("card_unidash_name")}</p>
+              <p className="sm caps mono">{t("card_unidash_subtitle")}</p>
+              <p className="sm caps mono card-muted">{t("card_active_dev")}</p>
             </Copy>
           </div>
         </div>
@@ -107,34 +109,30 @@ export default function Card() {
       <section className="card-about">
         <div className="card-section-label">
           <Copy>
-            <p className="sm caps mono">Who We Are</p>
+            <p className="sm caps mono">{t("card_who_label")}</p>
           </Copy>
         </div>
         <div className="card-about-copy">
           <Copy>
-            <h3>
-              We are a software development company based in Amman, Jordan.
-              We build digital products, automate business operations, and write
-              custom software for organizations that need things done right.
-            </h3>
+            <h3>{t("card_who_copy")}</h3>
           </Copy>
         </div>
         <div className="card-about-stats">
           <div className="card-stat">
             <Copy>
-              <p className="sm caps mono card-muted">Since</p>
+              <p className="sm caps mono card-muted">{t("card_since")}</p>
               <h2>2023</h2>
             </Copy>
           </div>
           <div className="card-stat">
             <Copy>
-              <p className="sm caps mono card-muted">Current Products</p>
+              <p className="sm caps mono card-muted">{t("card_products")}</p>
               <h2>1</h2>
             </Copy>
           </div>
           <div className="card-stat">
             <Copy>
-              <p className="sm caps mono card-muted">Future Ventures</p>
+              <p className="sm caps mono card-muted">{t("card_ventures")}</p>
               <h2>&#8734;</h2>
             </Copy>
           </div>
@@ -144,27 +142,23 @@ export default function Card() {
       <section className="card-venture">
         <div className="card-section-label">
           <Copy>
-            <p className="sm caps mono">Featured Venture</p>
+            <p className="sm caps mono">{t("card_venture_label")}</p>
           </Copy>
         </div>
         <div className="card-venture-inner">
           <div className="card-venture-header">
             <Copy>
-              <h2>UniDash</h2>
-              <p className="sm caps mono card-muted">University Food Ordering Platform</p>
+              <h2>{t("card_unidash_name")}</h2>
+              <p className="sm caps mono card-muted">{t("card_unidash_subtitle")}</p>
             </Copy>
           </div>
           <div className="card-venture-desc">
             <Copy>
-              <h3>
-                UniDash is a food ordering platform for university campuses.
-                Students place orders in advance, skip the queue, and pick up
-                when ready. Cafeterias handle more volume with less friction.
-              </h3>
+              <h3>{t("card_unidash_desc")}</h3>
             </Copy>
           </div>
           <div className="card-venture-cta">
-            <BtnLink route="/work/unidash" label="Learn More" />
+            <BtnLink route="/work/unidash" label={t("card_learn_more")} />
           </div>
         </div>
       </section>
@@ -172,27 +166,15 @@ export default function Card() {
       <section className="card-services">
         <div className="card-section-label">
           <Copy>
-            <p className="sm caps mono">What We Build</p>
+            <p className="sm caps mono">{t("card_services_label")}</p>
           </Copy>
         </div>
         <div className="card-list">
           {[
-            {
-              title: "Custom Software",
-              desc: "Business software built around your workflow.",
-            },
-            {
-              title: "Automation",
-              desc: "Taking repetitive manual work off your plate.",
-            },
-            {
-              title: "Mobile Applications",
-              desc: "iOS and Android applications designed for real users.",
-            },
-            {
-              title: "AI Solutions",
-              desc: "Machine learning and computer vision put to practical use.",
-            },
+            { title: t("card_s1_title"), desc: t("card_s1_desc") },
+            { title: t("card_s2_title"), desc: t("card_s2_desc") },
+            { title: t("card_s3_title"), desc: t("card_s3_desc") },
+            { title: t("card_s4_title"), desc: t("card_s4_desc") },
           ].map((s, i) => (
             <div className="card-list-item" key={i}>
               <Copy>
@@ -207,20 +189,20 @@ export default function Card() {
       <section className="card-selected-work">
         <div className="card-section-label">
           <Copy>
-            <p className="sm caps mono">Selected Work</p>
+            <p className="sm caps mono">{t("card_work_label")}</p>
           </Copy>
         </div>
         <div className="card-list">
           <div className="card-list-item">
             <Copy>
-              <p className="caps">UniDash</p>
-              <p className="sm caps mono card-muted">University Food Ordering Platform</p>
+              <p className="caps">{t("card_unidash_name")}</p>
+              <p className="sm caps mono card-muted">{t("card_unidash_subtitle")}</p>
             </Copy>
           </div>
           <div className="card-list-item">
             <Copy>
               <p className="caps">Borvyn Bakery</p>
-              <p className="sm caps mono card-muted">E-Commerce Experience, Motion UI</p>
+              <p className="sm caps mono card-muted">{t("card_borvyn_tags")}</p>
             </Copy>
           </div>
         </div>
@@ -229,23 +211,14 @@ export default function Card() {
       <section className="card-why">
         <div className="card-section-label">
           <Copy>
-            <p className="sm caps mono">Why The Office?</p>
+            <p className="sm caps mono">{t("card_why_label")}</p>
           </Copy>
         </div>
         <div className="card-list">
           {[
-            {
-              title: "Fast Development",
-              desc: "Built efficiently without unnecessary complexity.",
-            },
-            {
-              title: "Scalable Architecture",
-              desc: "Designed for long-term growth.",
-            },
-            {
-              title: "Long-Term Partnership",
-              desc: "We stick around long after launch.",
-            },
+            { title: t("card_w1_title"), desc: t("card_w1_desc") },
+            { title: t("card_w2_title"), desc: t("card_w2_desc") },
+            { title: t("card_w3_title"), desc: t("card_w3_desc") },
           ].map((w, i) => (
             <div className="card-list-item" key={i}>
               <Copy>
@@ -260,13 +233,13 @@ export default function Card() {
       <section className="card-contact">
         <div className="card-section-label">
           <Copy>
-            <p className="sm caps mono">Get In Touch</p>
+            <p className="sm caps mono">{t("card_contact_label")}</p>
           </Copy>
         </div>
         <div className="card-contact-links">
           <a href="tel:+962XXXXXXXXX" className="card-contact-link">
             <Copy>
-              <h2>Call</h2>
+              <h2>{t("card_call")}</h2>
             </Copy>
           </a>
           <a
@@ -276,12 +249,12 @@ export default function Card() {
             className="card-contact-link"
           >
             <Copy>
-              <h2>WhatsApp</h2>
+              <h2>{t("card_whatsapp")}</h2>
             </Copy>
           </a>
           <a href="mailto:info@theoffice.it.com" className="card-contact-link">
             <Copy>
-              <h2>Email</h2>
+              <h2>{t("card_email")}</h2>
             </Copy>
           </a>
           <a
@@ -290,7 +263,7 @@ export default function Card() {
             onClick={(e) => navigateTo(e, "/")}
           >
             <Copy>
-              <h2>Website</h2>
+              <h2>{t("card_website")}</h2>
             </Copy>
           </a>
         </div>
@@ -299,16 +272,16 @@ export default function Card() {
       <footer className="card-footer">
         <div className="card-footer-brand">
           <Copy>
-            <p className="sm caps mono">The Office</p>
-            <p className="sm caps mono">Development Company</p>
-            <p className="sm caps mono">Amman, Jordan</p>
+            <p className="sm caps mono">{t("card_footer_company")}</p>
+            <p className="sm caps mono">{t("card_footer_type")}</p>
+            <p className="sm caps mono">{t("card_footer_city")}</p>
             <p className="sm caps mono">info@theoffice.it.com</p>
           </Copy>
         </div>
         <div className="card-footer-copy">
           <Copy>
             <p className="sm caps mono card-muted">
-              &copy; 2026 The Office. All Rights Reserved.
+              {t("card_footer_rights")}
             </p>
           </Copy>
         </div>

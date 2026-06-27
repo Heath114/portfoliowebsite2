@@ -4,42 +4,41 @@ import "./ProcessCards.css";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useT } from "@/context/LanguageContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ProcessCards = () => {
+  const t = useT();
+
   const processCardsData = [
     {
       index: "01",
-      title: "Principles",
-      label: "(About the principles)",
+      title: t("process_1_title"),
+      label: t("process_1_label"),
       image: "/images/process/process_001.jpeg",
-      description:
-        "We design with restraint and intention. Every decision is shaped by a set of values, clarity, structure, and calm execution.",
+      description: t("process_1_desc"),
     },
     {
       index: "02",
-      title: "Approach",
-      label: "(About the approach)",
+      title: t("process_2_title"),
+      label: t("process_2_label"),
       image: "/images/process/process_002.jpeg",
-      description:
-        "Our process is iterative and deliberate. We prioritize simplicity over excess, and build systems that scale with clarity.",
+      description: t("process_2_desc"),
     },
     {
       index: "03",
-      title: "Practice",
-      label: "(About the practice)",
+      title: t("process_3_title"),
+      label: t("process_3_label"),
       image: "/images/process/process_003.jpeg",
-      description:
-        "We work at the intersection of design and code. Every detail is shaped by consistency, rhythm, and quiet precision.",
+      description: t("process_3_desc"),
     },
     {
       index: "04",
-      title: "Vision",
-      label: "(About the vision)",
+      title: t("process_4_title"),
+      label: t("process_4_label"),
       image: "/images/process/process_004.jpeg",
-      description:
-        "We believe the web should feel honest and effortless. Our aim is to create digital experiences that stand the test of time.",
+      description: t("process_4_desc"),
     },
   ];
 

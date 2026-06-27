@@ -5,6 +5,7 @@ import { useTransitionRouter } from "next-view-transitions";
 
 import Copy from "@/components/Copy/Copy";
 import BtnLink from "@/components/BtnLink/BtnLink";
+import { useT } from "@/context/LanguageContext";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -15,6 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 const page = () => {
   const sampleProjectRef = useRef(null);
   const router = useTransitionRouter();
+  const t = useT();
 
   function slideInOut() {
     document.documentElement.animate(
@@ -222,9 +224,9 @@ const page = () => {
           <div className="sp-col sp-col-lg">
             <div className="sp-tags">
               <Copy>
-                <p className="sm caps mono">Bilingual Web Platform</p>
-                <p className="sm caps mono">Case-Study Architecture</p>
-                <p className="sm caps mono">UI Engineering</p>
+                <p className="sm caps mono">{t("newlook_tag_1")}</p>
+                <p className="sm caps mono">{t("newlook_tag_2")}</p>
+                <p className="sm caps mono">{t("newlook_tag_3")}</p>
               </Copy>
             </div>
           </div>
@@ -247,33 +249,21 @@ const page = () => {
           <div className="sp-col-lg">
             <div className="sp-copy-title">
               <Copy>
-                <h3>Portfolio-Led Website For A Finishing & Coating Company</h3>
+                <h3>{t("newlook_title")}</h3>
               </Copy>
             </div>
           </div>
           <div className="sp-col-sm">
             <div className="sp-copy-description">
               <Copy>
-                <p>
-                  New Look is a multilingual company site built to present
-                  services and project work in a clear, premium structure. The
-                  platform includes Arabic and English routing, responsive
-                  layouts, and dedicated project detail pages that make the
-                  portfolio easy to scan on both desktop and mobile.
-                </p>
+                <p>{t("newlook_desc_1")}</p>
                 <br />
-                <p>
-                  We focused on balancing technical credibility with visual
-                  polish: scroll-based reveals, masonry galleries, structured
-                  service sections, and strong navigation between projects. The
-                  result is a portfolio-first experience that supports both
-                  brand trust and lead-generation intent.
-                </p>
+                <p>{t("newlook_desc_2")}</p>
               </Copy>
 
               <div className="sp-link">
                 <div className="sp-link-wrapper">
-                  <BtnLink route="https://newlookjo.com" label="View Project" />
+                  <BtnLink route="https://newlookjo.com" label={t("newlook_view")} />
                 </div>
               </div>
             </div>
@@ -308,7 +298,7 @@ const page = () => {
       <section className="sp-next-project">
         <div className="sp-next-project-copy">
           <Copy>
-            <p className="sm">(More Projects)</p>
+            <p className="sm">{t("newlook_more")}</p>
           </Copy>
           <div className="sp-next-project-names">
             <Copy>
@@ -316,7 +306,7 @@ const page = () => {
                 href="/work/borvyn"
                 onClick={(e) => handleProjectRoute(e, "/work/borvyn")}
               >
-                <h1>Borvyn Bakery</h1>
+                <h1>{t("newlook_next")}</h1>
               </a>
             </Copy>
           </div>

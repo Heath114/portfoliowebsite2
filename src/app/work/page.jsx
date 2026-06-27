@@ -5,6 +5,7 @@ import { useRef } from "react";
 
 import Copy from "@/components/Copy/Copy";
 import Footer from "@/components/Footer/Footer";
+import { useLanguage, useT } from "@/context/LanguageContext";
 
 import { useTransitionRouter } from "next-view-transitions";
 import gsap from "gsap";
@@ -17,6 +18,8 @@ const page = () => {
   const workRef = useRef(null);
   const workContainerRefs = useRef([]);
   const router = useTransitionRouter();
+  const { lang } = useLanguage();
+  const t = useT();
 
   function slideInOut() {
     document.documentElement.animate(
@@ -285,7 +288,7 @@ const page = () => {
                         {project.name}
                       </p>
                       <p className="sm work-project-info-tags">
-                        {project.tags}
+                        {lang === "ar" ? project.tagsAr : project.tags}
                       </p>
                     </div>
                   </button>

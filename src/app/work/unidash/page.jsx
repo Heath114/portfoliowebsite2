@@ -4,12 +4,14 @@ import { useRef } from "react";
 
 import Copy from "@/components/Copy/Copy";
 import BtnLink from "@/components/BtnLink/BtnLink";
+import { useT } from "@/context/LanguageContext";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 export default function UniDash() {
   const pageRef = useRef(null);
+  const t = useT();
 
   useGSAP(() => {
     if (!pageRef.current) return;
@@ -29,7 +31,7 @@ export default function UniDash() {
       <section className="ud-hero">
         <div className="ud-hero-top">
           <Copy animateOnScroll={false} delay={0.5}>
-            <p className="sm caps mono">University Food Ordering Platform</p>
+            <p className="sm caps mono">{t("ud_subtitle")}</p>
           </Copy>
         </div>
 
@@ -41,11 +43,11 @@ export default function UniDash() {
             </Copy>
             <div className="ud-hero-meta">
               <Copy animateOnScroll={false} delay={1.1}>
-                <p className="sm caps mono">Status</p>
-                <p className="sm caps mono">Active Development</p>
+                <p className="sm caps mono">{t("ud_status_label")}</p>
+                <p className="sm caps mono">{t("ud_status")}</p>
               </Copy>
               <div className="ud-cta">
-                <BtnLink route="/work" label="Back to Work" />
+                <BtnLink route="/work" label={t("ud_back")} />
               </div>
             </div>
           </div>
@@ -54,12 +56,12 @@ export default function UniDash() {
 
       <section className="ud-coming-soon">
         <Copy>
-          <h2>Coming Soon</h2>
+          <h2>{t("ud_coming_soon")}</h2>
         </Copy>
         <div className="ud-coming-soon-copy">
           <Copy>
             <p className="sm caps mono">
-              This page will be up once UniDash ships.
+              {t("ud_coming_copy")}
             </p>
           </Copy>
         </div>

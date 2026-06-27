@@ -7,6 +7,7 @@ import BtnLink from "@/components/BtnLink/BtnLink";
 import WhoWeAre from "@/components/WhoWeAre/WhoWeAre";
 import ProcessCards from "@/components/ProcessCards/ProcessCards";
 import Footer from "@/components/Footer/Footer";
+import { useT } from "@/context/LanguageContext";
 
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
@@ -17,6 +18,7 @@ gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const page = () => {
   const studioRef = useRef(null);
+  const t = useT();
 
   useGSAP(() => {
     if (!studioRef.current) return;
@@ -102,12 +104,7 @@ const page = () => {
         <section className="studio-header">
           <div className="studio-header-copy">
             <Copy>
-              <h2>
-                At The Office Development, we approach every project with quiet
-                focus. Through close collaboration and considered process, we
-                build digital work that reflects both the needs of our clients
-                and the values of our practice.
-              </h2>
+              <h2>{t("studio_header")}</h2>
             </Copy>
           </div>
         </section>
@@ -119,23 +116,13 @@ const page = () => {
           <div className="mission-intro-col-lg">
             <div className="mission-intro-copy">
               <Copy>
-                <h3>
-                  We are a digital studio dedicated to creating clear and
-                  purposeful online experiences. Our work is rooted in
-                  structure, guided by systems, and shaped through close
-                  collaboration.
-                </h3>
+                <h3>{t("studio_para_1")}</h3>
                 <br />
-                <h3>
-                  With a focus on design and development, we build scalable
-                  solutions that reflect quiet precision and long-term value.
-                  Every project is an exercise in restraint, intention, and
-                  technical care.
-                </h3>
+                <h3>{t("studio_para_2")}</h3>
               </Copy>
 
               <div className="mission-link">
-                <BtnLink route="/work" label="View Work" dark />
+                <BtnLink route="/work" label={t("studio_work_btn")} dark />
               </div>
             </div>
           </div>
@@ -146,14 +133,9 @@ const page = () => {
         <section className="recognition">
           <div className="recognition-copy">
             <Copy>
-              <p className="sm caps">(Recognition)</p>
+              <p className="sm caps">{t("studio_recognition_label")}</p>
               <br />
-              <h2>
-                Our work has been recognized by digital platforms and design
-                communities for its clarity, consistency, and attention to
-                detail. We focus on building systems that go beyond visuals
-                experiences.
-              </h2>
+              <h2>{t("studio_recognition_copy")}</h2>
             </Copy>
           </div>
         </section>

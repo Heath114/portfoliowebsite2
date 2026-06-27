@@ -5,6 +5,7 @@ import { useTransitionRouter } from "next-view-transitions";
 
 import Copy from "@/components/Copy/Copy";
 import BtnLink from "@/components/BtnLink/BtnLink";
+import { useT } from "@/context/LanguageContext";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -15,6 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 const page = () => {
   const sampleProjectRef = useRef(null);
   const router = useTransitionRouter();
+  const t = useT();
 
   function slideInOut() {
     document.documentElement.animate(
@@ -222,9 +224,9 @@ const page = () => {
           <div className="sp-col sp-col-lg">
             <div className="sp-tags">
               <Copy>
-                <p className="sm caps mono">E-Commerce Experience</p>
-                <p className="sm caps mono">Frontend Engineering</p>
-                <p className="sm caps mono">Motion UI</p>
+                <p className="sm caps mono">{t("borvyn_tag_1")}</p>
+                <p className="sm caps mono">{t("borvyn_tag_2")}</p>
+                <p className="sm caps mono">{t("borvyn_tag_3")}</p>
               </Copy>
             </div>
           </div>
@@ -247,35 +249,21 @@ const page = () => {
           <div className="sp-col-lg">
             <div className="sp-copy-title">
               <Copy>
-                <h3>A Conversion-Focused Bakery Experience With Rich Motion</h3>
+                <h3>{t("borvyn_title")}</h3>
               </Copy>
             </div>
           </div>
           <div className="sp-col-sm">
             <div className="sp-copy-description">
               <Copy>
-                <p>
-                  Borvyn is a full Next.js storefront concept for a premium
-                  bakery brand, built around storytelling, product clarity, and
-                  high-intent purchase flows. The experience combines bold
-                  typography, strong visual hierarchy, and smooth transitions to
-                  make browsing feel editorial while still keeping commerce
-                  actions immediate.
-                </p>
+                <p>{t("borvyn_desc_1")}</p>
                 <br />
-                <p>
-                  The build includes dynamic product pages, cart state
-                  management, custom micro-interactions, and animated sections
-                  powered by GSAP and Framer Motion. We designed the interface to
-                  balance playful motion with readable product details, helping
-                  users discover flavors quickly and move to checkout with less
-                  friction.
-                </p>
+                <p>{t("borvyn_desc_2")}</p>
               </Copy>
 
               <div className="sp-link">
                 <div className="sp-link-wrapper">
-                  <BtnLink route="https://borvyn.netlify.app/" label="View Project" />
+                  <BtnLink route="https://borvyn.netlify.app/" label={t("borvyn_view")} />
                 </div>
               </div>
             </div>
@@ -310,7 +298,7 @@ const page = () => {
       <section className="sp-next-project">
         <div className="sp-next-project-copy">
           <Copy>
-            <p className="sm">(More Projects)</p>
+            <p className="sm">{t("borvyn_more")}</p>
           </Copy>
           <div className="sp-next-project-names">
             <Copy>
@@ -318,7 +306,7 @@ const page = () => {
                 href="/work/newlook"
                 onClick={(e) => handleProjectRoute(e, "/work/newlook")}
               >
-                <h1>New Look - Finishing & Coating</h1>
+                <h1>{t("borvyn_next")}</h1>
               </a>
             </Copy>
           </div>

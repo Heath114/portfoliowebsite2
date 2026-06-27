@@ -5,11 +5,13 @@ import { useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useT } from "@/context/LanguageContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const footerRef = useRef(null);
+  const t = useT();
 
   useGSAP(
     () => {
@@ -17,9 +19,7 @@ const Footer = () => {
 
       textElements.forEach((element) => {
         const textContent = element.querySelector(".footer-text-content");
-        gsap.set(textContent, {
-          y: "100%",
-        });
+        gsap.set(textContent, { y: "100%" });
       });
 
       ScrollTrigger.create({
@@ -49,7 +49,7 @@ const Footer = () => {
           <div className="fs-header">
             <div className="footer-text">
               <div className="footer-text-content">
-                <p className="sm caps">( Socials )</p>
+                <p className="sm caps">{t("footer_socials")}</p>
               </div>
             </div>
           </div>
@@ -57,7 +57,7 @@ const Footer = () => {
             <a href="mailto:info@theoffice.it.com" target="_blank" rel="noopener noreferrer">
               <div className="footer-text">
                 <div className="footer-text-content">
-                  <h2>Email</h2>
+                  <h2>{t("footer_email")}</h2>
                 </div>
               </div>
             </a>
@@ -66,17 +66,16 @@ const Footer = () => {
             <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
               <div className="footer-text">
                 <div className="footer-text-content">
-                  <h2>LinkedIn</h2>
+                  <h2>{t("footer_linkedin")}</h2>
                 </div>
               </div>
             </a>
           </div>
-        
           <div className="footer-social">
             <a href="https://www.instagram.com/theoffice_dev/" target="_blank" rel="noopener noreferrer">
               <div className="footer-text">
                 <div className="footer-text-content">
-                  <h2>Instagram</h2>
+                  <h2>{t("footer_instagram")}</h2>
                 </div>
               </div>
             </a>
@@ -88,14 +87,14 @@ const Footer = () => {
         <div className="fc-col-lg">
           <div className="footer-text">
             <div className="footer-text-content">
-              <p className="sm caps">Developed by The Office Development</p>
+              <p className="sm caps">{t("footer_developed")}</p>
             </div>
           </div>
         </div>
         <div className="fc-col-sm">
           <div className="footer-text">
             <div className="footer-text-content">
-              <p className="sm caps">&copy; 2026 All Rights Reserved</p>
+              <p className="sm caps">{t("footer_rights")}</p>
             </div>
           </div>
         </div>

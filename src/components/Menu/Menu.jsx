@@ -6,6 +6,7 @@ import { useTransitionRouter } from "next-view-transitions";
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import { useGSAP } from "@gsap/react";
+import { useLanguage, useT } from "@/context/LanguageContext";
 
 gsap.registerPlugin(CustomEase);
 CustomEase.create("hop", ".15, 1, .25, 1");
@@ -15,6 +16,8 @@ const Menu = ({ onMenuStateChange }) => {
   const [currentPath, setCurrentPath] = useState("/");
   const [currentTime, setCurrentTime] = useState("");
   const router = useTransitionRouter();
+  const { toggleLang } = useLanguage();
+  const t = useT();
 
   const menuRef = useRef(null);
   const navRef = useRef(null);
@@ -88,7 +91,7 @@ const Menu = ({ onMenuStateChange }) => {
         y: "100%",
       });
 
-      gsap.set(".menu-footer .revealer p, .menu-footer .revealer a", {
+      gsap.set(".menu-footer .revealer p, .menu-footer .revealer a, .menu-footer .revealer button", {
         y: "100%",
       });
     },
@@ -236,7 +239,7 @@ const Menu = ({ onMenuStateChange }) => {
     );
 
     tl.to(
-      ".menu-footer .revealer p, .menu-footer .revealer a",
+      ".menu-footer .revealer p, .menu-footer .revealer a, .menu-footer .revealer button",
       {
         y: "0%",
         duration: 1,
@@ -276,7 +279,7 @@ const Menu = ({ onMenuStateChange }) => {
     );
 
     tl.to(
-      ".menu-footer .revealer p, .menu-footer .revealer a",
+      ".menu-footer .revealer p, .menu-footer .revealer a, .menu-footer .revealer button",
       {
         y: "-100%",
         duration: 0.5,
@@ -303,7 +306,7 @@ const Menu = ({ onMenuStateChange }) => {
             y: "100%",
           });
 
-          gsap.set(".menu-footer .revealer p, .menu-footer .revealer a", {
+          gsap.set(".menu-footer .revealer p, .menu-footer .revealer a, .menu-footer .revealer button", {
             y: "100%",
           });
         },
@@ -366,7 +369,7 @@ const Menu = ({ onMenuStateChange }) => {
             <div className="nav-menu-toggle-open">
               <div className="revealer" onClick={openMenu}>
                 <p className="sm caps mono" ref={menuBtnRef}>
-                  Menu
+                  {t("nav_menu")}
                 </p>
               </div>
             </div>
@@ -379,93 +382,58 @@ const Menu = ({ onMenuStateChange }) => {
             <div className="menu-overlay-nav-toggle-close">
               <div className="revealer" onClick={closeMenu}>
                 <p className="sm caps mono" ref={closeBtnRef}>
-                  Close
+                  {t("nav_close")}
                 </p>
               </div>
             </div>
           </div>
           <div className="menu-overlay-items" ref={menuItemsRef}>
             <div className="revealer">
-              <a
-                href="/"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigateTo("/");
-                }}
-              >
-                <h1>home,</h1>
+              <a href="/" onClick={(e) => { e.preventDefault(); navigateTo("/"); }}>
+                <h1>{t("nav_home")}</h1>
               </a>
             </div>
             <div className="revealer">
-              <a
-                href="/work"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigateTo("/work");
-                }}
-              >
-                <h1>work,</h1>
+              <a href="/work" onClick={(e) => { e.preventDefault(); navigateTo("/work"); }}>
+                <h1>{t("nav_work")}</h1>
               </a>
             </div>
             <div className="revealer">
-              <a
-                href="/studio"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigateTo("/studio");
-                }}
-              >
-                <h1>about us,</h1>
+              <a href="/studio" onClick={(e) => { e.preventDefault(); navigateTo("/studio"); }}>
+                <h1>{t("nav_about")}</h1>
               </a>
             </div>
             <div className="revealer">
-              <a
-                href="/archive"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigateTo("/archive");
-                }}
-              >
-                <h1>archive,</h1>
+              <a href="/archive" onClick={(e) => { e.preventDefault(); navigateTo("/archive"); }}>
+                <h1>{t("nav_archive")}</h1>
               </a>
             </div>
             <div className="revealer">
-              <a
-                href="/contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigateTo("/contact");
-                }}
-              >
-                <h1>contact</h1>
+              <a href="/contact" onClick={(e) => { e.preventDefault(); navigateTo("/contact"); }}>
+                <h1>{t("nav_contact")}</h1>
               </a>
             </div>
           </div>
           <div className="menu-footer" ref={menuFooterColsRef}>
             <div className="menu-footer-col">
               <div className="revealer">
-                <p className="sm caps mono">&copy; 2026 All Rights Reserved</p>
+                <p className="sm caps mono">{t("nav_rights")}</p>
+              </div>
+              <div className="revealer menu-lang-toggle-wrapper">
+                <button className="sm caps mono menu-lang-toggle" onClick={() => { closeMenu(); toggleLang(); }}>
+                  {t("lang_toggle")}
+                </button>
               </div>
             </div>
             <div className="menu-footer-col">
               <div className="socials">
                 <div className="revealer">
-                  <a
-                    className="sm caps mono"
-                    href="https://www.youtube.com/@codegrid"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a className="sm caps mono" href="https://www.youtube.com/@codegrid" target="_blank" rel="noopener noreferrer">
                     YouTube
                   </a>
                 </div>
                 <div className="revealer">
-                  <a
-                    className="sm caps mono"
-                    href="https://www.instagram.com/theoffice_dev/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a className="sm caps mono" href="https://www.instagram.com/theoffice_dev/" target="_blank" rel="noopener noreferrer">
                     Instagram
                   </a>
                 </div>

@@ -4,6 +4,7 @@ import { useRef } from "react";
 
 import Copy from "@/components/Copy/Copy";
 import BtnLink from "@/components/BtnLink/BtnLink";
+import { useT } from "@/context/LanguageContext";
 
 import { useTransitionRouter } from "next-view-transitions";
 import gsap from "gsap";
@@ -12,6 +13,7 @@ import { useGSAP } from "@gsap/react";
 const page = () => {
   const router = useTransitionRouter();
   const contactRef = useRef(null);
+  const t = useT();
 
   useGSAP(
     () => {
@@ -106,64 +108,53 @@ const page = () => {
       <div className="contact-copy">
         <div className="contact-copy-bio">
           <Copy delay={1}>
-            <p className="caps sm">The Office Development</p>
-            <p className="caps sm">Amman, Jordan</p>
+            <p className="caps sm">{t("contact_studio")}</p>
+            <p className="caps sm">{t("contact_city")}</p>
           </Copy>
         </div>
 
         <div className="contact-copy-tags">
           <Copy delay={1.15}>
-            <p className="caps sm">Web Systems</p>
-            <p className="caps sm">Interface Design</p>
-            <p className="caps sm">Creative Development</p>
-            <p className="caps sm">End To End Delivery</p>
+            <p className="caps sm">{t("contact_tag_1")}</p>
+            <p className="caps sm">{t("contact_tag_2")}</p>
+            <p className="caps sm">{t("contact_tag_3")}</p>
+            <p className="caps sm">{t("contact_tag_4")}</p>
           </Copy>
         </div>
 
         <div className="contact-copy-addresses">
           <div className="contact-address">
             <Copy delay={1.3}>
-              <p className="caps sm">Amman</p>
-              <p className="caps sm">Jordan</p>
-              <p className="caps sm">By Appointment</p>
+              <p className="caps sm">{t("contact_addr_1")}</p>
+              <p className="caps sm">{t("contact_addr_2")}</p>
+              <p className="caps sm">{t("contact_addr_3")}</p>
             </Copy>
           </div>
         </div>
 
         <div className="contact-copy-links">
           <Copy delay={1.6}>
-            <a
-              href="https://www.linkedin.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <p className="caps sm">LinkedIn</p>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+              <p className="caps sm">{t("contact_link_linkedin")}</p>
             </a>
-            <a
-              href="https://www.instagram.com/theoffice_dev/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <p className="caps sm">Instagram DM</p>
+            <a href="https://www.instagram.com/theoffice_dev/" target="_blank" rel="noopener noreferrer">
+              <p className="caps sm">{t("contact_link_instagram")}</p>
             </a>
             <a href="/studio" onClick={(e) => handleNavigation(e, "/studio")}>
-              <p className="caps sm">About Us</p>
+              <p className="caps sm">{t("contact_link_about")}</p>
             </a>
             <a href="/archive" onClick={(e) => handleNavigation(e, "/archive")}>
-              <p className="caps sm">Project Archive</p>
+              <p className="caps sm">{t("contact_link_archive")}</p>
             </a>
             <a href="/work" onClick={(e) => handleNavigation(e, "/work")}>
-              <p className="caps sm">Selected Work</p>
+              <p className="caps sm">{t("contact_link_work")}</p>
             </a>
           </Copy>
         </div>
 
         <div className="contact-cta">
           <div className="contact-cta-wrapper">
-            <BtnLink
-              route="mailto:info@theoffice.it.com"
-              label="Reach Us via Email"
-            />
+            <BtnLink route="mailto:info@theoffice.it.com" label={t("contact_btn")} />
           </div>
         </div>
       </div>
@@ -172,14 +163,14 @@ const page = () => {
         <div className="fc-col-lg">
           <div className="footer-text">
             <div className="footer-text-content">
-              <p className="sm caps">Developed by The Office Development</p>
+              <p className="sm caps">{t("footer_developed")}</p>
             </div>
           </div>
         </div>
         <div className="fc-col-sm">
           <div className="footer-text">
             <div className="footer-text-content">
-              <p className="sm caps">&copy; 2026 All Rights Reserved</p>
+              <p className="sm caps">{t("footer_rights")}</p>
             </div>
           </div>
         </div>

@@ -146,6 +146,23 @@ img.logo-img {
   flex: 1;
 }
 
+.menu-lang-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--foreground);
+  will-change: transform;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .menu-lang-toggle:hover {
+    opacity: 0.65;
+    transition: opacity 0.3s ease;
+  }
+}
+
 .socials {
   display: flex;
   justify-content: flex-end;

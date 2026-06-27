@@ -4,10 +4,12 @@ import "./WhoWeAre.css";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useT } from "@/context/LanguageContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const WhoWeAre = () => {
+  const t = useT();
   useGSAP(() => {
     const whoweareScroll = document.querySelector(".whoweare-scroll");
     const containerWidth = whoweareScroll.offsetWidth;
@@ -107,7 +109,7 @@ const WhoWeAre = () => {
       <div className="whoweare-container">
         <div className="whoweare-scroll">
           <div className="whoweare-header">
-            <h1>Who we are</h1>
+            <h1>{t("who_we_are")}</h1>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
 import Menu from "@/components/Menu/Menu";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 import { ReactLenis } from "lenis/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -146,19 +147,21 @@ export default function ClientLayout({ children }) {
 
   if (isMobile || isTouchDevice) {
     return (
-      <>
+      <LanguageProvider>
         <Menu />
         {children}
-      </>
+      </LanguageProvider>
     );
   }
 
   return (
-    <ReactLenis key={pathname} ref={lenisRef} root options={scrollSettings}>
-      <>
-        <Menu />
-      </>
-      {children}
-    </ReactLenis>
+    <LanguageProvider>
+      <ReactLenis key={pathname} ref={lenisRef} root options={scrollSettings}>
+        <>
+          <Menu />
+        </>
+        {children}
+      </ReactLenis>
+    </LanguageProvider>
   );
 }
