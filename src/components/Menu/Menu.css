@@ -67,6 +67,7 @@
 .nav-menu-toggle-open {
   display: flex;
   justify-content: flex-end;
+  gap: 1.5rem;
   height: max-content;
 }
 
@@ -74,10 +75,25 @@
   cursor: pointer;
 }
 
-.nav-menu-toggle-open .revealer p {
+.nav-menu-toggle-open .revealer p,
+.nav-menu-toggle-open .revealer button {
   font-weight: 700;
   color: white;
   font-size: 0.875rem;
+}
+
+.nav-lang-toggle {
+  cursor: pointer;
+}
+
+.nav-lang-toggle button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 1;
+  will-change: transform;
+  -webkit-font-smoothing: antialiased;
 }
 
 .nav-logo a {
@@ -194,6 +210,11 @@ img.logo-img {
   .menu-overlay-items a:hover,
   .menu-footer a:hover {
     opacity: 0.65;
+  }
+
+  .nav-lang-toggle:hover button {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
   }
 
   .nav-menu-toggle-open .revealer:hover p,

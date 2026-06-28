@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import DynamicBackground from "@/components/DynamicBackground/DynamicBackground";
 import Copy from "@/components/Copy/Copy";
 import BtnLink from "@/components/BtnLink/BtnLink";
-import { useLanguage, useT } from "@/context/LanguageContext";
+import { useT } from "@/context/LanguageContext";
 
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
@@ -20,7 +20,6 @@ const PRELOADER_SESSION_KEY = "wuwei-home-preloader-played";
 export default function Home() {
   const [showPreloader, setShowPreloader] = useState(false);
   const [hasCheckedPreloader, setHasCheckedPreloader] = useState(false);
-  const { toggleLang } = useLanguage();
   const t = useT();
 
   useEffect(() => {
@@ -205,12 +204,6 @@ export default function Home() {
                   <p className="sm caps mono">{t("home_tag_3")}</p>
                   <p className="sm caps mono">{t("home_tag_4")}</p>
                 </Copy>
-              </div>
-
-              <div className="hero-lang">
-                <button className="sm caps mono hero-lang-btn" onClick={toggleLang}>
-                  {t("lang_toggle")}
-                </button>
               </div>
 
               <div className="hero-link">

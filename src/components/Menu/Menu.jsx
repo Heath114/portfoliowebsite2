@@ -367,6 +367,11 @@ const Menu = ({ onMenuStateChange }) => {
             </div>
 
             <div className="nav-menu-toggle-open">
+              <div className="revealer nav-lang-toggle">
+                <button className="sm caps mono hero-lang-btn" onClick={toggleLang}>
+                  {t("lang_toggle")}
+                </button>
+              </div>
               <div className="revealer" onClick={openMenu}>
                 <p className="sm caps mono" ref={menuBtnRef}>
                   {t("nav_menu")}
