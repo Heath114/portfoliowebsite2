@@ -70,7 +70,12 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }) {
 
           if (textIndent && textIndent !== "0px") {
             if (split.lines.length > 0) {
-              split.lines[0].style.paddingLeft = textIndent;
+              const isRTL = document.documentElement.dir === "rtl";
+              if (isRTL) {
+                split.lines[0].style.paddingRight = textIndent;
+              } else {
+                split.lines[0].style.paddingLeft = textIndent;
+              }
             }
             element.style.textIndent = "0";
           }

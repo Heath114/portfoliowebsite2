@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap");
 
 :root {
   --background: #1a1a1a;
@@ -169,4 +169,51 @@ html.lenis {
 ::view-transition-old(root) {
   z-index: 1;
   animation: none !important;
+}
+
+/* ── RTL / Arabic Typography ──────────────────────── */
+
+[dir="rtl"] body {
+  font-family: "IBM Plex Sans Arabic", "Helvetica Neue", Arial, sans-serif;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3 {
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+[dir="rtl"] h1 {
+  font-weight: 700;
+}
+
+[dir="rtl"] h2 {
+  font-weight: 600;
+}
+
+[dir="rtl"] h3 {
+  font-weight: 600;
+}
+
+[dir="rtl"] p,
+[dir="rtl"] a {
+  font-weight: 500;
+}
+
+[dir="rtl"] p.caps,
+[dir="rtl"] a.caps {
+  font-weight: 700;
+}
+
+[dir="rtl"] p.caps.mono,
+[dir="rtl"] a.caps.mono {
+  font-family: "IBM Plex Sans Arabic", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+}
+
+@media (max-width: 1000px) {
+  [dir="rtl"] h1 {
+    letter-spacing: 0;
+  }
 }

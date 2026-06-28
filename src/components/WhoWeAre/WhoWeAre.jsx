@@ -4,13 +4,16 @@ import "./WhoWeAre.css";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useT } from "@/context/LanguageContext";
+import { useLanguage, useT } from "@/context/LanguageContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const WhoWeAre = () => {
+  const { lang } = useLanguage();
   const t = useT();
   useGSAP(() => {
+    const isRTL = document.documentElement.dir === "rtl";
+    const dirSign = isRTL ? 1 : -1;
     const whoweareScroll = document.querySelector(".whoweare-scroll");
     const containerWidth = whoweareScroll.offsetWidth;
     const viewportWidth = window.innerWidth;
@@ -20,11 +23,11 @@ const WhoWeAre = () => {
     const maxTranslateAtTarget = maxTranslateX / targetProgress;
 
     const images = [
-      { id: "#whoweare-img-1", endTranslateX: -800 },
-      { id: "#whoweare-img-2", endTranslateX: -1200 },
-      { id: "#whoweare-img-3", endTranslateX: -600 },
-      { id: "#whoweare-img-4", endTranslateX: -1000 },
-      { id: "#whoweare-img-5", endTranslateX: -900 },
+      { id: "#whoweare-img-1", endTranslateX: dirSign * 800 },
+      { id: "#whoweare-img-2", endTranslateX: dirSign * 1200 },
+      { id: "#whoweare-img-3", endTranslateX: dirSign * 600 },
+      { id: "#whoweare-img-4", endTranslateX: dirSign * 1000 },
+      { id: "#whoweare-img-5", endTranslateX: dirSign * 900 },
     ];
 
     ScrollTrigger.create({
@@ -70,10 +73,10 @@ const WhoWeAre = () => {
           opacity = 1;
           scale = 1;
           const adjustedProgress = (progress - 0.3) / (1 - 0.3);
-          translateX = -Math.min(
+          translateX = dirSign * Math.abs(Math.min(
             adjustedProgress * maxTranslateAtTarget,
             maxTranslateX
-          );
+          ));
         }
 
         gsap.set(whoweareScroll, {
@@ -102,7 +105,7 @@ const WhoWeAre = () => {
         },
       });
     });
-  }, []);
+  }, [lang]);
 
   return (
     <section className="whoweare">

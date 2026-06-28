@@ -31,12 +31,20 @@
   gap: 3rem;
 }
 
-.contact-copy .caps {
+.contact .caps {
   word-spacing: 0.12em;
 }
 
 .contact-copy-links .caps {
   word-spacing: 0.18em;
+}
+
+[dir="rtl"] .contact .caps {
+  word-spacing: normal;
+}
+
+[dir="rtl"] .contact-copy-links .caps {
+  word-spacing: normal;
 }
 
 .contact [data-copy-wrapper] {
@@ -65,6 +73,11 @@
 .contact-copy-addresses {
   position: relative;
   left: 20%;
+}
+
+[dir="rtl"] .contact-copy-addresses {
+  left: auto;
+  right: 20%;
 }
 
 .contact-footer {

@@ -32,6 +32,10 @@
   opacity: 0;
 }
 
+[dir="rtl"] .whoweare-scroll {
+  transform-origin: 90% center;
+}
+
 .whoweare .whoweare-header h1 {
   text-transform: uppercase;
   font-size: 55vw;
@@ -67,6 +71,31 @@
 #whoweare-img-5 {
   top: 50%;
   left: 95%;
+}
+
+[dir="rtl"] #whoweare-img-1 {
+  left: auto;
+  right: 5%;
+}
+
+[dir="rtl"] #whoweare-img-2 {
+  left: auto;
+  right: 25%;
+}
+
+[dir="rtl"] #whoweare-img-3 {
+  left: auto;
+  right: 50%;
+}
+
+[dir="rtl"] #whoweare-img-4 {
+  left: auto;
+  right: 75%;
+}
+
+[dir="rtl"] #whoweare-img-5 {
+  left: auto;
+  right: 95%;
 }
 
 @media (max-width: 1000px) {

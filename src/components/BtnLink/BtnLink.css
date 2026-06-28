@@ -23,6 +23,10 @@
   z-index: 1;
 }
 
+[dir="rtl"] .anime-link-icon {
+  transform: scaleX(-1);
+}
+
 a.link-dark {
   color: var(--background);
 }

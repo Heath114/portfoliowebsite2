@@ -4,27 +4,29 @@ import { useRef } from "react";
 
 import Copy from "@/components/Copy/Copy";
 import BtnLink from "@/components/BtnLink/BtnLink";
-import { useT } from "@/context/LanguageContext";
+import { useLanguage, useT } from "@/context/LanguageContext";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 export default function UniDash() {
   const pageRef = useRef(null);
+  const { lang } = useLanguage();
   const t = useT();
 
   useGSAP(() => {
     if (!pageRef.current) return;
+    const isRTL = document.documentElement.dir === "rtl";
 
     const line = pageRef.current.querySelector(".ud-line");
     if (line) {
       gsap.fromTo(
         line,
-        { scaleX: 0, transformOrigin: "left" },
+        { scaleX: 0, transformOrigin: isRTL ? "right" : "left" },
         { scaleX: 1, duration: 1.2, delay: 1.1, ease: "power4.out" }
       );
     }
-  });
+  }, [lang]);
 
   return (
     <div className="ud-page" ref={pageRef}>

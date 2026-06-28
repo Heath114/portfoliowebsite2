@@ -132,6 +132,19 @@
   will-change: transform;
 }
 
+/* ── RTL Overrides ─────────────────────────────────── */
+
+[dir="rtl"] .progress-bar {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .counter,
+[dir="rtl"] .count {
+  left: auto;
+  right: 1.5rem;
+}
+
 @media (max-width: 1000px) {
   .hero {
     background-color: var(--background);

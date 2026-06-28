@@ -116,6 +116,10 @@ const page = () => {
           onEnter: () => {
             if (!initialAnimationComplete) return;
 
+            const isRTL = document.documentElement.dir === "rtl";
+            const originIn = isRTL ? "right" : "left";
+            const originOut = isRTL ? "left" : "right";
+
             yearIndices.forEach((yearIndex, i) => {
               yearIndex.classList.remove("active");
               const highlighter = yearIndex.querySelector(
@@ -123,7 +127,7 @@ const page = () => {
               );
               gsap.to(highlighter, {
                 scaleX: 0,
-                transformOrigin: "right",
+                transformOrigin: originOut,
                 duration: 0.3,
                 ease: "power2.out",
               });
@@ -136,7 +140,7 @@ const page = () => {
               );
               gsap.to(highlighter, {
                 scaleX: 1,
-                transformOrigin: "left",
+                transformOrigin: originIn,
                 duration: 0.3,
                 ease: "power2.out",
               });
@@ -145,6 +149,10 @@ const page = () => {
           onEnterBack: () => {
             if (!initialAnimationComplete) return;
 
+            const isRTL = document.documentElement.dir === "rtl";
+            const originIn = isRTL ? "right" : "left";
+            const originOut = isRTL ? "left" : "right";
+
             yearIndices.forEach((yearIndex, i) => {
               yearIndex.classList.remove("active");
               const highlighter = yearIndex.querySelector(
@@ -152,7 +160,7 @@ const page = () => {
               );
               gsap.to(highlighter, {
                 scaleX: 0,
-                transformOrigin: "right",
+                transformOrigin: originOut,
                 duration: 0.3,
                 ease: "power2.out",
               });
@@ -165,7 +173,7 @@ const page = () => {
               );
               gsap.to(highlighter, {
                 scaleX: 1,
-                transformOrigin: "left",
+                transformOrigin: originIn,
                 duration: 0.3,
                 ease: "power2.out",
               });
@@ -192,13 +200,14 @@ const page = () => {
         });
 
         if (yearIndices[activeIndex]) {
+          const isRTL = document.documentElement.dir === "rtl";
           yearIndices[activeIndex].classList.add("active");
           const highlighter = yearIndices[activeIndex].querySelector(
             ".year-index-highlighter"
           );
           gsap.to(highlighter, {
             scaleX: 1,
-            transformOrigin: "left",
+            transformOrigin: isRTL ? "right" : "left",
             duration: 0.3,
             ease: "power2.out",
             onComplete: () => {
